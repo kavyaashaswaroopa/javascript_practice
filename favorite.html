@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Favorite Movies List</h1>
+
+
+<input type="text" placeholder="Add a movie to your list.." id="movieName">
+<button  onclick="addmovie()">Add </button>
+
+
+<ul id="demo"></ul>
+
+<script>
+const movies =["marvels",
+"RRR",
+"kingdom",
+"og",
+"joe"];
+function showmovies(){
+let list = document.getElementById("demo");
+list.innerHTML = `
+    <li>${movies[0]}</li>
+    <li>${movies[1]}</li>
+    <li>${movies[2]}</li>
+    <li>${movies[3]}</li>
+    <li>${movies[4]}</li>
+  `;
+}
+function addmovie() {
+  let movieName = document.getElementById("movieName").value;
+
+  if (movieName !== "") {
+    movies.push(movieName); 
+    document.getElementById("movieName").value = ""; 
+
+   
+    let list = document.getElementById("demo");
+    list.innerHTML += `<li>${movieName}</li>`;
+  } else {
+    alert("Please enter a movie name!");
+  }
+}
+
+showmovies();
+ 
+</script>
+
+</body>
+</html> 

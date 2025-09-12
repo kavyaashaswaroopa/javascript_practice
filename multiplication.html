@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Multiplication Table generator</h1>
+<h3>enter a number to generate its multiplication Table:</h3>
+<input type="text" placeholder="Type a number...." id="num">
+<button  onclick=" generatefor()"> generate</button>
+
+
+<p id="table"></p>
+
+<script>
+function generatefor(){
+let number = document.getElementById("num").value;
+let text = "";
+
+for (let i = 1; i <= 10; i++) {
+  text +=  number + " * " + i + " = " + (number * i) + "<br>";
+      }
+
+document.getElementById("table").innerHTML = text;
+}
+</script>
+
+</body>
+</html>
