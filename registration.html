@@ -1,0 +1,81 @@
+<html>
+<body>
+
+<h1>Register</h1>
+
+<input type="text" placeholder="Enter Name.." id="FullName"><br>
+<br>
+<input type="text" placeholder="EmailAddress" id="EmailAddress"><br>
+<br>
+<input type="text" placeholder="UserName" id="UserName"><br>
+<br>
+<input type="text" placeholder="password" id="password"><br>
+<br>
+<input type="password" placeholder="Confirm Password" id="confirmpassword"><br>
+<br>
+<button  onclick="Register()">Register </button>
+
+<h2>Already have an account?Logine</h2>
+
+<p id="demo"></p>
+
+<script>
+function Register(){
+var FullName = document.getElementById("FullName").value;
+var EmailAddress = document.getElementById("EmailAddress").value;
+var UserName= document.getElementById("UserName").value;
+var password = document.getElementById("password").value;
+var confirmpassword = document.getElementById("confirmpassword").value;
+
+let message = "";
+
+  
+  if (FullName === "") {
+    message = "FullName cannot be empty.";
+    }else if (FullName.length < 2){
+    message ="FullName must be at least 2 characters.";
+    }else if (!/^[A-Za-z ]+$/.test(FullName)) {
+    message = "FullName should contain only letters and spaces.";
+    }else if (EmailAddress ===""){
+    message = "EmailAddress cannot be empty.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(EmailAddress)){
+    message ="EmailAddress must follow the correct format.";
+    }else if (UserName ===""){
+    message = "UserName cannot be empty.";
+    }else if (!/^[a-zA-Z0-9]+$/.test(UserName)) {
+    message = "UserName should be alphanumeric.";
+    }else if (UserName.length < 3){
+    message ="UserName must be at least 3 characters.";
+    } else if (password === "") {
+    message = "Password cannot be empty.";
+    } else if (password.length < 8) {
+    message = "Password must be at least 8 characters.";
+    } else if (!/[A-Z]/.test(password)) {
+    message = "Password must contain at least one uppercase letter.";
+    } else if (!/[a-z]/.test(password)) {
+    message = "Password must contain at least one lowercase letter.";
+    } else if (!/[0-9]/.test(password)) {
+    message = "Password must contain at least one number.";
+    } else if (!/[!@#$%^&]/.test(password)) {
+    message = "Password must contain at least one special character.";
+    }else if (confirmpassword === "") {
+    message = "Confirmpassword cannot be empty.";
+    }else if (password !== confirmpassword) {
+    message = "Passwords must match.";
+    } else {
+    message = "Registration Successful!";
+    }
+
+  
+  document.getElementById("demo").innerText = message;
+}
+    
+
+
+</script>
+
+</body>
+</html>
+
+    
+
